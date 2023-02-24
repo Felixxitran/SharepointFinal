@@ -1,0 +1,30 @@
+﻿@page
+@model Demo_Sharepoint_API.Pages.SharepointUIModel
+@{
+}
+
+<h1>Workspace </h1>
+
+<div class="row">
+    <div class="col-lg-1">
+        <form asp-page-handler="transfersome" method="post">
+            <button class="btn btn-default">Transfer Some Bill of Lading</button>
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="transferall" method="post">
+            <button class="btn btn-default">Transfer all Bill of Lading</button>
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="donottransfer" method="post">
+            <button class="btn btn-default">Do not Transfer Anything</button>
+        </form>
+    </div>
+</div>
+
+<button id="sharepoint-login"
+        type="button">
+
+    <a class="nav-link text-dark" asp-area="" asp-page="">More to come</a>
+</button>

@@ -1,0 +1,43 @@
+﻿@page
+@model Demo_Sharepoint_API.Pages.LoginSharepointModel
+@{
+}
+
+<h1>Access to your Sharepoint</h1>
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Tenant ID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="clientID" placeholder="Enter Tenant ID..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Client Secret</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="clientSecret" placeholder="Enter Client Secret..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+
+        <label class="col-sm-3 col-form-label">Site Domain</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="DomainSite" placeholder="Enter Site Domain..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+
+        <label class="col-sm-3 col-form-label">Folder Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="FolderName" placeholder="Enter Folder Name..." />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Access</button>
+        </div>
+    </div>
+</form>
+<button id="sharepoint-connect"
+        type="button">
+    <a class="nav-link text-dark" asp-area="" asp-page="/SharepointInstruction">Create credentials for your Sharepoint</a>
+</button>

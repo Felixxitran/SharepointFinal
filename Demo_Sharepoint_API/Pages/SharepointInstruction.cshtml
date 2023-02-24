@@ -1,0 +1,73 @@
+﻿@page
+@model Demo_Sharepoint_API.Pages.SharepointInstructionModel
+@{
+}
+<h1>This is Sharepoint Instruction create credentials of your Sharepoint </h1>
+<h2 style="color:blueviolet;">STEP 1: </h2>
+<h3 style="color: red;">PLEASE ENSURE THAT YOUR ACCOUNT IS THE ADMIN ACCOUNT</h3>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appregnew.aspx</h3>
+<ul>
+    <li>Domain Site Name the Domain Site name of your company for example 
+        <img src="/css/img/domainSite.png"/>
+    </li>
+    <li>
+        Site Name is the name of the site 
+        <img src="/css/img/siteName.png" />
+    </li>
+</ul>
+<h3>You will be prompt to the website like below</h3>
+<img src="~/css/img/appregnew.png"/>
+<h3>please generate client ID and client Secret , also type in the Title and Domain of your choice</h3>
+<h3>For Example : Title is BETA_API and domain name is Seatech</h3>
+<h3>Redirect URL is the URL to your site , for example : https://seatechsystemsintegrationin.sharepoint.com/sites/Beta_ASP.NET</h3>
+<h3>After that click Create and you will be prompt to the website like below</h3>
+<img src="~/css/img/clientInfo.png"/>
+<h3>Please save your client ID and client Secret</h3>
+
+
+
+<h2 style="color:blueviolet;">Step 2:</h2> 
+<h3>Please go to the link below</h3>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appinv.aspx</h3>
+<h3>You will be prompt to the website like below</h3>
+<img src="/css/img/appivn.png"/>
+<h3>Input your clientID got in step 1 to the App Id box and then click Look Up</h3>
+<h3>You will have something like below</h3>
+<img src="~/css/img/appivn2.png"/>
+<h3>After that please copy all the text in the google doc file you get from the link below to Permission Request XML</h3>
+<p style="padding: 10px; border: 2px solid red;">
+    <a href="https://docs.google.com/document/d/e/2PACX-1vSjbBBs-dSXf9UbN6Gy3l3ACE83BwA19gLfLys6yUZT3F2Qk2Iu3A-zyUbCy5R3eAYXGhk5W4DrxCWj/pub">https://docs.google.com/document/d/e/2PACX-1vSjbBBs-dSXf9UbN6Gy3l3ACE83BwA19gLfLys6yUZT3F2Qk2Iu3A-zyUbCy5R3eAYXGhk5W4DrxCWj/pub</a>
+</p>
+<h3>Then click create and Trust it</h3>
+
+<h2 style="color:blueviolet;">
+    STEP 3:</h2>
+<h3>Please go to the link below</h3>
+<h3>https://"Domain Site Name"/sites/"Site Name"/_layouts/15/appprincipals.aspx</h3>
+<h3>You will be prompt to the website like below</h3>
+<img src="~/css/img/clientInfotennantID.png"/>
+<h3>please copy paste your App Identifier the part that is bold below to the tenant ID box in the form </h3>
+<img src="~/css/img/tenantId.png"/>
+<h3>the Site Domain box is the same as the same domain Site Name in step 1 </h3>
+
+<h3>The final form should look like below</h3>
+<img src="~/css/img/samplesubmit2.png"/>
+<h2 style="color:blueviolet;">STEP 4: Enable Custom App Authentication(Since Sharepoint generally does not allow for custom app to have authentication by default , we have to set things up)</h2>
+<h3>Please open the terminal in your PC/LAPTOP and please run as administrator</h3>
+<ul>
+    <li>Firstly, please install the SharePoint Module by using the following command : <h1 style="color:red;">Install-Module -Name Microsoft.Online.SharePoint.PowerShell</h1></li>
+    <li>Setting up your Sharepoint email : <h1 style="color:red;">$adminUPN = "your sharepoint email"</h1></li>
+    <li>Also your organization name : <h1 style="color:red;">$orgName = "same as your domain name but without the .sharepoint.com"</h1></li>
+    <li>Then set up your user Credential: <h1 style="color:red;">$userCredential=Get-Credential -UserName $adminUPN -Message "the password to your account"</h1>
+        <img src="~/css/img/terminalsharepoint.png"/>
+    </li>
+    <li>Connect the SPO SERVICE: <h1 style="color:red;">Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential</h1></li>
+    <li>Enable the custom authorization :<h1 style="color:red;">set-spotenant -DisableCustomAppAuthentication $false</h1>
+        It should be looking like this at the end
+        <img src="~/css/img/terminal2.png"/>
+    </li>
+</ul>
+<h2>Then you are done , please access to  your Sharepoint</h2>
+
+
+
